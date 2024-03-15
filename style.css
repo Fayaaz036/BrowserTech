@@ -1,0 +1,98 @@
+:root {
+    --main-lichtblauw: #01689b;
+    --main-donkerblauw: #154273;
+    --main-contrastkleur: #04857f;
+    --main-fontkleur: #000000;
+    --main-disabled-text: #696969;
+    --main-error-highlight: #cc003d;
+    --main-error-message: #f7d2dd;
+    --main-check-highlight: #f9e11e;
+    --main-check-message: #fdf6bb;
+    --main-good-highlight: #39870c;
+    --main-good-message: #c5f2b2;
+    --main-question: #007bc7;
+    --main-message: #d9ebf7;
+    --main-background-color:#b4b4b4;
+}
+@font-face {
+    font-family: 'RijksoverheidsansText';
+    src: url('fonts/rijksoverheidsanstext-regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RijksoverheidSerifItalic';
+    src: url('fonts/rijksoverheidserif-italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RijksoverheidSerifRegular';
+    src: url('fonts/rijksoverheidserif-regular.ttf') format('truetype');
+}
+main {
+    background-color: var(--main-background-color);
+}
+
+
+nav {
+    display:flex;
+    justify-content: center;
+}
+title {
+    font-size:1.25em;
+}
+
+
+label{
+    display:block;
+    margin: 1em;
+    font-family: 'RijksoverheidsansText', serif;
+
+}
+form:has( #overledenegetrouwd-nee) #geregistreerdpartner,
+form:has( #overledenekinderen) #overledenekinderen ,
+form:has( #testament-nee) #notarisgegevens
+{
+    display:none;
+}
+form:has( #overledenegetrouwd-ja:checked ) #geregistreerdpartner,
+form:has( #overledenekinderen-ja:checked) #overledenekinderen,
+form:has( #testament-ja:checked) #notarisgegevens{
+
+    display:block;
+}
+html {
+    font-family: 'RijksoverheidsansText', serif;
+    scroll-behavior: smooth;
+}
+
+fieldset {
+    margin:3em;
+    background-color: white;
+}
+legend {
+    font-size:1.25em;
+    background-color: white;
+    text-align: center;
+    margin:1em;
+}
+
+fieldset + fieldset {
+    display:none;
+}
+fieldset:valid + fieldset,
+fieldset.valid + fieldset {
+    display: block;
+}
+/*fieldset:valid + fieldset:not:checked + fieldset {*/
+/*    display:none;*/
+/*}*/
+
+/*fieldset:valid + fieldset:checked + fieldset {*/
+/*    display:block;*/
+/*}*/
+
+/*#vraag1b:target {*/
+/*    display:block;*/
+/*    scroll-margin-top: 5em;*/
+/*}*/
+/*not display:none*/

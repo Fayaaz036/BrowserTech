@@ -3,27 +3,171 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-<form>
-  <fieldset class="Stap 1A">
-    <legend>1a. Gegevens van de overledenen. Vul hier de gegevens in van de overledene.</legend>
-    <label for="voorletters">Voorletter(s): <input type="text" id="voorletters" > </label>
-    <label for="tussenvoegsel">Tussenvoegsel: <input type="text" id="tussenvoegsel"> </label>
-    <label for="achternaam">Achternaam: <input type="text" id="achternaam"> </label>
-    <label for="bsnnummer">BSN-Nummer: <input type="number" id="bsnnummer" maxlength="9" title="Dit is een foutmelding"> </label>
-    <label for="overlijdensdatum">Overlijdensdatum: <input type="date" id="overlijdensdatum"> </label>
-  </fieldset>
-  <fieldset>
-    <legend>1b. Gegevens van de overledenen. Vul hier de gegevens in van de overledene.</legend>
-    <label for="voorletters">Voorletter(s): <input type="text" id="voorletters" > </label>
-    <label for="tussenvoegsel">Tussenvoegsel: <input type="text" id="tussenvoegsel"> </label>
-    <label for="achternaam">Achternaam: <input type="text" id="achternaam"> </label>
-    <label for="bsnnummer">BSN-Nummer: <input type="number" id="bsnnummer" maxlength="9" title="Dit is een foutmelding"> </label>
-    <label for="overlijdensdatum">Overlijdensdatum: <input type="date" id="overlijdensdatum"> </label>
-  </fieldset>
-  <input type="submit">
+  <nav>
+    <img src="img/logo.png" class="logo" alt="Logo">
+  </nav>
+  <div>
+    <p class="title">Aangifte 2023 Erfbelasting</p>
+  </div>
+  <main>
+<form id="belastingform">
+<!--  <section id="vraag1a">-->
+    <fieldset class="active">
+      <legend>1a. Gegevens van de overledenen. Vul hier de gegevens in van de overledene.</legend>
+      <label for="voorletters">Voorletter(s):
+        <input type="text" id="voorletters" required >
+      </label>
 
+      <label for="tussenvoegsel">Tussenvoegsel:
+        <input type="text" id="tussenvoegsel">
+      </label>
+
+      <label for="achternaam">Achternaam:
+        <input type="text" id="achternaam">
+      </label>
+
+      <label for="bsnnummer">BSN-Nummer:
+        <input type="numeric" id="bsnnummer" maxlength="9" title="Dit is een foutmelding" required>
+      </label>
+
+      <label for="overlijdensdatum">Overlijdensdatum:
+        <input type="date" id="overlijdensdatum"> </label>
+<!--      <a href="#vraag1b" id="volgendevraag">Volgende Stap</a>-->
+
+      <input type="submit">
+
+    </fieldset>
+<!--  </section>-->
+
+
+
+<!--    <p>1b. Gegevens van de overledenen. Vul hier de gegevens in van de overledene.</p>-->
+<!--  <section id="vraag1b">-->
+    <fieldset class="active">
+      <legend>1b Was de overledene getrouwd of een geregistreerd partner op het moment van overlijden?</legend>
+      <label><input type="radio" id="overledenegetrouwd-nee" name="overledenegetrouwd" value="nee"/> Nee</label>
+      <label><input type="radio" id="overledenegetrouwd-ja" name="overledenegetrouwd" value="ja" /> Ja</label>
+
+      <fieldset id="geregistreerdpartner">
+        <legend>Hadden de overledene en diens echtgenoot of
+          geregistreerd partner huwelijkse of partner schaps-
+          voorwaarden laten vastleggen in een notariële akte?</legend>
+
+        <label><input type="radio" name="overledenegetrouwd" value="Nee"/> Nee</label>
+        <label><input type="radio" name="overledenegetrouwd" value="Ja"/> Ja</label>
+
+        <!--      zo ja laat input zien.-->
+        <label for="aktenotaris">Selecteer een PDF-bestand om te uploaden:</label>
+        <input type="file" id="aktenotaris" name="aktenotaris" accept=".pdf">
+
+
+        <legend>Hadden de overledene en diens partner een finaal
+          verrekenbeding?</legend>
+        <label><input type="radio" name="verrekenbeding" value="Nee"/> Nee</label>
+        <label><input type="radio" name="verrekenbeding" value="Ja"/> Ja</label>
+
+        <label>Datum huwelijkse of partnerschapsvoorwaarden:
+          <input type="date">
+        </label>
+      </fieldset>
+    </fieldset>
+<!--  </section>-->
+
+
+
+  <fieldset class="active">
+    <legend>1c.Had de overledene kinderen?</legend>
+    <!--    Ga door naar vraag 2-->
+    <label><input type="radio" id="overledenekinderen-nee" name="overledenekinderen" value="Nee"/> Nee, ga verder naar vraag 1d.</label>
+    <!--    vul gegevens notaris in-->
+    <label><input type="radio" id="overledenekinderen-ja" name="overledenekinderen" value="Ja"/> Ja</label>
+
+    <fieldset id="overledenekinderen">
+      <legend>Is 1 van deze kinderen eerder overleden dan de
+        overledene voor wie u nu aangifte doet?</legend>
+      <!--    Ga door naar vraag 2-->
+      <label><input type="radio" name="eerderoverleden" value="Nee"/> Nee, ga verder naar vraag 1d.</label>
+      <!--    vul gegevens notaris in-->
+      <label><input type="radio" name="eerderoverleden" value="Ja"/> Ja</label>
+
+
+
+    <legend>Had dit overleden kind zelf kinderen?</legend>
+      <!--    Ga door naar vraag 2-->
+      <label><input type="radio" name="zelfkinderen" value="Nee"/> Nee</label>
+      <!--    vul gegevens notaris in-->
+      <label><input type="radio" name="zelfkinderen" value="Ja"/> Ja</label>
+    </fieldset>
+  </fieldset>
+
+
+
+  <fieldset class="active">
+    <legend>Had de overledene een testament?</legend>
+    <label><input type="radio" id="testament-nee" name="testament" value="Nee"/> Nee</label>
+    <!--    vul gegevens notaris in-->
+    <label><input type="radio" id="testament-ja" name="testament" value="Ja"/> Ja</label>
+
+    <fieldset id="notarisgegevens">
+      <label for="protocolnummer">Protocolnummer notaris:
+        <input type="number" id="protocolnummer" name="protocolnummer" maxlength="6">
+      </label>
+
+      <label for="voorlettersnotaris">Voorletter(s):
+        <input type="text" id="voorlettersnotaris">
+      </label>
+
+      <label for="tussenvoegselnotaris">Tussenvoegsel(s):
+        <input type="text" id="tussenvoegselnotaris">
+      </label>
+
+      <label for="achternaamnotaris">Achternaam:
+        <input type="text" id="achternaamnotaris">
+      </label>
+
+      <label for="vestigingsplaatsnotaris">Vestigingsplaats:
+        <input type="text" id="vestigingsplaatsnotaris">
+      </label>
+
+      <label for="protocolnummernotaris">Protocolnummer notaris:
+        <input type="text" id="protocolnummernotaris">
+      </label>
+
+      <label for="datum">Datum van het testament of van de laatste wijziging:
+        <input type="date" id="datum" name="datum">
+      </label>
+    </fieldset>
+  </fieldset>
+  <fieldset class="active">
+    <legend>4c Wat is de relatie van deze verkrijger met de overledene? </legend>
+    <p>In onderdeel D van de toelichting vindt u uitleg over de relaties waaruit u kunt kiezen.</p>
+    <label><input type="radio" id="echtgenoot-nee" name="relatieoverledene" value="Echtgenoot of geregistreerd partner"/> Echtgenoot of geregistreerd partner</label>
+    <label><input type="radio" id="samenwonentestament-ja" name="relatieoverledene" value="samenwoner zonder notariële akte"/> Samenwoner zonder notariële akte</label>
+    <label><input type="radio" id="samenwoon-ja" name="relatieoverledene" value="Samenwoner met notariële akte"/> Samenwoner met notariële akte</label>
+    <label><input type="radio" id="ouder-ja" name="relatieoverledene" value="Ouder"/> Ouder</label>
+    <label><input type="radio" id="expartner-ja" name="relatieoverledene" value="Ex-partner"/> Ex-partner (als er bij de echtscheiding afspraken zijn gemaakt over de erfenis)</label>
+    <label><input type="radio" id="kindofstief-ja" name="relatieoverledene" value="Kind of stiefkind"/> Kind of stiefkind</label>
+    <label><input type="radio" id="kindbeperking-ja" name="relatieoverledene" value="Kind met een beperking"/> Kind met een beperking</label>
+
+
+    <fieldset id="kinderen">
+      <label><input type="radio" id="Pleegkind-ja" name="relatieoverledene" value="Pleegkind"/> Pleegkind</label>
+      <label><input type="radio" id="Kleinkind-ja" name="relatieoverledene" value="Kleinkind"/> Kleinkind</label>
+      <label><input type="radio" id="Achterkleinkind-ja" name="relatieoverledene" value="Achterkleinkind"/> Achterkleinkind</label>
+      <label><input type="radio" id="Algemeen-ja" name="relatieoverledene" value="Algemeen nut beogende"/> Algemeen nut beogende</label>
+      <label><input type="radio" id="Sociaal-ja" name="relatieoverledene" value="Sociaal belang behartigende"/> Sociaal belang behartigende</label>
+      <label><input type="radio" id="Anders-ja" name="relatieoverledene" value="Anders"/> Anders</label>
+
+    </fieldset>
+  </fieldset>
+
+  <input type="submit">
 </form>
+</main>
+  <script src="script.js"></script>
 </body>
 </html>
