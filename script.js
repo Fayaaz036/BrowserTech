@@ -1,23 +1,23 @@
-document.getElementById('belastingform').addEventListener('submit', function(e) {
-    e.preventDefault();
+const inputFields = document.querySelectorAll('input[type="text"], input[type="radio"]');
+inputFields.forEach(function (inputField){
 
-    var formData = new FormData(document.getElementById('belastingform'));
+    inputField.addEventListener("change", function(){
+        const value = inputField.value;
+        const key = 'dataSaved'+ inputFields.id;
 
-    formData.forEach(function(value, key) {
         localStorage.setItem(key, value);
-    });
 
-    alert('Gegevens zijn opgeslagen in de local storage');
-});
+        alert("Data opgeslagen");
+    })
+})
 
-document.addEventListener('DOMContentLoaded', function() {
-    var formElements = document.querySelectorAll('#belastingform input, #belastingform textarea');
-
-    formElements.forEach(function(element) {
-        var storedValue = localStorage.getItem(element.name);
-
-        if (storedValue) {
-            element.value = storedValue;
+window.addEventListener("load", function(){
+    const key = 'dataSaved'+ inputFields.id;
+    const dataSaved = localStorage.getItem(key);
+    if (dataSaved !== null){
+        inputFields.value = dataSaved;
+        if (inputFields.value === dataSaved) {
+            inputFields.checked = true;
         }
-    });
-});
+    }
+})
